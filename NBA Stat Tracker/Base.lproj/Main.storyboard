@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="542-97-Mtc">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="gwk-6W-2Tl">
+            <objects>
+                <tabBarController id="542-97-Mtc" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ppt-1R-EtA">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wdU-G2-rXJ" kind="relationship" relationship="viewControllers" id="x9j-OY-CLZ"/>
+                        <segue destination="tdr-1J-tJA" kind="relationship" relationship="viewControllers" id="kcr-tB-seF"/>
+                        <segue destination="E04-hq-WkM" kind="relationship" relationship="viewControllers" id="yJM-06-VxM"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sz-Sq-ayu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1532" y="494"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="cml-CZ-bEa">
+            <objects>
+                <navigationController id="tdr-1J-tJA" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="bEw-9n-SV2"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KKo-uZ-XPz">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="uWP-Fc-5kl" kind="relationship" relationship="rootViewController" id="U1t-bt-bD8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1DB-0H-Q3J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="494"/>
+        </scene>
+        <!--Teams-->
+        <scene sceneID="b67-NK-dZ6">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Teams" id="uWP-Fc-5kl" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="cvz-qm-PUN"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="un5-bs-k72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="494"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="BTF-JF-tcA">
+            <objects>
+                <navigationController id="E04-hq-WkM" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="YHy-SA-qos"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oS9-iU-Nso">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gtr-R0-rDj" kind="relationship" relationship="rootViewController" id="QmM-GN-OtY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DBY-zu-iEX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-156" y="1250"/>
+        </scene>
+        <!--Players-->
+        <scene sceneID="xqy-bx-x6u">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Players" id="gtr-R0-rDj" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="9X1-Rr-PSk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Oix-8O-TIc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="912" y="1250"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="kd3-v9-S8v">
+            <objects>
+                <navigationController id="wdU-G2-rXJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="PTi-Ge-a8L"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="KBX-a4-4rT">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="DNX-LN-DW9" kind="relationship" relationship="rootViewController" id="LSV-BR-yt0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9AM-Rb-LHl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-155" y="-274"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="tWO-0b-SEU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" id="DNX-LN-DW9" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="1gF-tW-UmK"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cQv-3A-Uyb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1046" y="-275"/>
+        </scene>
+    </scenes>
+</document>
