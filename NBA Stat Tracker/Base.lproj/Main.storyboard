@@ -25,11 +25,11 @@
             </objects>
             <point key="canvasLocation" x="-1532" y="494"/>
         </scene>
-        <!--Item-->
+        <!--Teams-->
         <scene sceneID="cml-CZ-bEa">
             <objects>
                 <navigationController id="tdr-1J-tJA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="bEw-9n-SV2"/>
+                    <tabBarItem key="tabBarItem" title="Teams" image="person.3.sequence" catalog="system" id="bEw-9n-SV2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KKo-uZ-XPz">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -52,11 +52,11 @@
             </objects>
             <point key="canvasLocation" x="1078" y="494"/>
         </scene>
-        <!--Item-->
+        <!--Players-->
         <scene sceneID="BTF-JF-tcA">
             <objects>
                 <navigationController id="E04-hq-WkM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="YHy-SA-qos"/>
+                    <tabBarItem key="tabBarItem" title="Players" image="person.fill" catalog="system" id="YHy-SA-qos"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oS9-iU-Nso">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -79,11 +79,11 @@
             </objects>
             <point key="canvasLocation" x="912" y="1250"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="kd3-v9-S8v">
             <objects>
                 <navigationController id="wdU-G2-rXJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="PTi-Ge-a8L"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="homekit" catalog="system" id="PTi-Ge-a8L"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KBX-a4-4rT">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -107,4 +107,9 @@
             <point key="canvasLocation" x="1046" y="-275"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="homekit" catalog="system" width="128" height="104"/>
+        <image name="person.3.sequence" catalog="system" width="128" height="60"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+    </resources>
 </document>
