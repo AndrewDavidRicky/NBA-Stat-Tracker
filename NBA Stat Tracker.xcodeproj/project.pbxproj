@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D866A4829CBBA7A00CF9D2D /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */; };
 		5DF82FB029C913B400646152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF82FAF29C913B400646152 /* AppDelegate.swift */; };
 		5DF82FB229C913B400646152 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF82FB129C913B400646152 /* SceneDelegate.swift */; };
 		5DF82FB429C913B400646152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF82FB329C913B400646152 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
 		5DF82FAC29C913B400646152 /* NBA Stat Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NBA Stat Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF82FAF29C913B400646152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF82FB129C913B400646152 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				5DF82FC329C9148200646152 /* Home.storyboard */,
 				5DF82FC529C9149200646152 /* Teams.storyboard */,
 				5DF82FC729C9149F00646152 /* Players.storyboard */,
+				5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */,
 			);
 			path = "NBA Stat Tracker";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DF82FB429C913B400646152 /* ViewController.swift in Sources */,
+				5D866A4829CBBA7A00CF9D2D /* GameTableViewController.swift in Sources */,
 				5DF82FB029C913B400646152 /* AppDelegate.swift in Sources */,
 				5DF82FB229C913B400646152 /* SceneDelegate.swift in Sources */,
 			);
