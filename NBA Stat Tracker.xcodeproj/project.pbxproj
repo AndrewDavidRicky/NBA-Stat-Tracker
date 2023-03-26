@@ -17,6 +17,8 @@
 		5DF82FC429C9148200646152 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF82FC329C9148200646152 /* Home.storyboard */; };
 		5DF82FC629C9149200646152 /* Teams.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF82FC529C9149200646152 /* Teams.storyboard */; };
 		5DF82FC829C9149F00646152 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF82FC729C9149F00646152 /* Players.storyboard */; };
+		8A19080929D0AA270089AE1F /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19080829D0AA270089AE1F /* PlayerTableViewController.swift */; };
+		8A19080D29D0B10B0089AE1F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19080C29D0B10B0089AE1F /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		5DF82FC329C9148200646152 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		5DF82FC529C9149200646152 /* Teams.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Teams.storyboard; sourceTree = "<group>"; };
 		5DF82FC729C9149F00646152 /* Players.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
+		8A19080829D0AA270089AE1F /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
+		8A19080C29D0B10B0089AE1F /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				5DF82FC529C9149200646152 /* Teams.storyboard */,
 				5DF82FC729C9149F00646152 /* Players.storyboard */,
 				5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */,
+				8A19080829D0AA270089AE1F /* PlayerTableViewController.swift */,
+				8A19080C29D0B10B0089AE1F /* PlayerViewController.swift */,
 			);
 			path = "NBA Stat Tracker";
 			sourceTree = "<group>";
@@ -153,10 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A19080929D0AA270089AE1F /* PlayerTableViewController.swift in Sources */,
 				5DF82FB429C913B400646152 /* ViewController.swift in Sources */,
 				5D866A4829CBBA7A00CF9D2D /* GameTableViewController.swift in Sources */,
 				5DF82FB029C913B400646152 /* AppDelegate.swift in Sources */,
 				5DF82FB229C913B400646152 /* SceneDelegate.swift in Sources */,
+				8A19080D29D0B10B0089AE1F /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
