@@ -5,7 +5,9 @@ class PlayerViewController: UIViewController {
     // Outlets for the player details labels
     
     @IBOutlet weak var assistsPerGameLabel: UILabel!
+    @IBOutlet weak var Game1: UITableViewCell!
     @IBOutlet weak var reboundsPerGameLabel: UILabel!
+    @IBOutlet weak var RecentGame1: UITableViewCell!
     @IBOutlet weak var pointsPerGameLabel: UILabel!
     @IBOutlet weak var teamNameLabel: UILabel!
     @IBOutlet weak var playerNameLabel: UILabel!

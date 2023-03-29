@@ -45,12 +45,6 @@ class TeamTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -71,5 +65,20 @@ class TeamTableViewController: UITableViewController {
         cell.textLabel?.text = nbaTeams[indexPath.row]
 
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showTeamDetails" {
+            // Get the selected team
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let team = nbaTeams[indexPath.row]
+                
+                // Get the destination view controller
+                let destinationVC = segue.destination as! TeamDetailViewController
+                
+                // Pass the player's data to the destination view controller
+                destinationVC.teamName = team
+            }
+        }
     }
 }

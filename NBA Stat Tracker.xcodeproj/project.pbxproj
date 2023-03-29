@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		494EB55129D4DEFA008B0932 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EB55029D4DEFA008B0932 /* Team.swift */; };
+		49C8F69729D252810059CAC7 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8F69629D252810059CAC7 /* TeamDetailViewController.swift */; };
 		5D866A4829CBBA7A00CF9D2D /* GameTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */; };
 		5DEA01B129D11D8E00BCD8C0 /* TeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DEA01B029D11D8E00BCD8C0 /* TeamTableViewController.swift */; };
 		5DF82FB029C913B400646152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF82FAF29C913B400646152 /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		494EB55029D4DEFA008B0932 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		49C8F69629D252810059CAC7 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
 		5DEA01B029D11D8E00BCD8C0 /* TeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewController.swift; sourceTree = "<group>"; };
 		5DF82FAC29C913B400646152 /* NBA Stat Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NBA Stat Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,10 +84,12 @@
 				5DF82FC329C9148200646152 /* Home.storyboard */,
 				5DF82FC529C9149200646152 /* Teams.storyboard */,
 				5DF82FC729C9149F00646152 /* Players.storyboard */,
+				494EB55029D4DEFA008B0932 /* Team.swift */,
 				5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */,
 				8A19080829D0AA270089AE1F /* PlayerTableViewController.swift */,
 				8A19080C29D0B10B0089AE1F /* PlayerViewController.swift */,
 				5DEA01B029D11D8E00BCD8C0 /* TeamTableViewController.swift */,
+				49C8F69629D252810059CAC7 /* TeamDetailViewController.swift */,
 			);
 			path = "NBA Stat Tracker";
 			sourceTree = "<group>";
@@ -162,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				494EB55129D4DEFA008B0932 /* Team.swift in Sources */,
 				8A19080929D0AA270089AE1F /* PlayerTableViewController.swift in Sources */,
 				5DF82FB429C913B400646152 /* ViewController.swift in Sources */,
+				49C8F69729D252810059CAC7 /* TeamDetailViewController.swift in Sources */,
 				5D866A4829CBBA7A00CF9D2D /* GameTableViewController.swift in Sources */,
 				5DF82FB029C913B400646152 /* AppDelegate.swift in Sources */,
 				5DEA01B129D11D8E00BCD8C0 /* TeamTableViewController.swift in Sources */,
