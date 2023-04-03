@@ -1,26 +1,41 @@
-//
-//  PlayerTableViewController.swift
-//  NBA Stat Tracker
-//
-//  Created by David Helsel on 3/26/23.
-//
-
 import UIKit
+import JumpShot
 
 class PlayerTableViewController: UITableViewController {
-    
-    let nbaPlayers = [
-        ("Luka Doncic", 32.9, 8.6, 8.2, "6'7\"", "Dallas Mavericks"),
-        ("Giannis Antetokounmpo", 31.1, 11.7, 5.6, "6'7\"", "Milwaukee Bucks"),
-        ("Joel Embiid", 33.3, 10.2, 4.2, "7'0\"", "Philadelphia 76ers"),
-        ("Stephen Curry", 29.6, 6.2, 6.3, "6'2\"", "Golden State Warriors"),
-        ]
-    
+
+    var nbaPlayers = [Player]().self
+    let jumpShot = JumpShot()
+    let jumpShotFunctions = ["getTeams()",
+                                 "getTeamImage()",
+                                 "getPlayerImage() - Small",
+                                 "getPlayerImage() - Large",
+                                 "getPlayers()",
+                                 "getDailySchedule(for: \"04/20/2021\")",
+                                 "getStandings()",
+                                 "getTeamLeaders(for: \"1610612737\")",
+                                 "getTeamSchedules(for: \"1610612737\")",
+                                 "getCompleteSchedule()",
+                                 "getCoaches()",
+                                 "getTeamStatRankings()",
+                                 "playerStatsSummary(for: \"2544\")",
+                                 "getGamePlays(for: \"20210125\", and \"0022000257\")",
+                                 "getLeadTrackers(for: \"20170201\", and \"0022000257\", and \"1\")",
+                                 "getGameRecap(for: \"20210125\", and \"0022000257\")",
+                                 "getTotalLeagueLeaders(for: \"2020\", and .regularSeason, and .playerEfficiency)",
+                                 "getPerGameLeagueLeaders(for: \"2020\", and .regularSeason, and .playerEfficiency)",
+                                 "getPer48LeagueLeaders(for: \"2020\", and .regularSeason, and .playerEfficiency)",
+                                 "getBoxscore(for: \"20210125\", and \"0022000257\")"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        tableView.dataSource = self
+        
+        getPlayers()
+
         
     }
-    
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         // We only have one section in this table
         return 1
@@ -30,37 +45,49 @@ class PlayerTableViewController: UITableViewController {
         // Return the number of games in the list
         return nbaPlayers.count
     }
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Dequeue a reusable cell from the table view with an identifier defined in the Storyboard
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
-
-        // Configure the cell with the game information
         let player = nbaPlayers[indexPath.row]
-        cell.textLabel?.text = "\(player.0)  (\(player.1) - \(player.2) - \(player.3))"
-
+        cell.textLabel?.text = player.self.firstName + " " + player.self.lastName
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showPlayerDetails" {
-            // Get the selected player
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let player = nbaPlayers[indexPath.row]
-                
-                // Get the destination view controller
-                let destinationVC = segue.destination as! PlayerViewController
-                
-                // Pass the player's data to the destination view controller
-                destinationVC.playerName = player.0
-                destinationVC.pointsPerGame = player.1
-                destinationVC.reboundsPerGame = player.2
-                destinationVC.assistsPerGame = player.3
-                destinationVC.height = player.4
-                destinationVC.teamName = player.5
+    
+    private func getPlayers() {
+            jumpShot.getPlayers { players, error in
+                guard error == nil else {
+                    print(error!)
+                    return
+                }
+
+                guard let players = players else {
+                    print("No players returned.")
+                    return
+                }
+
+                self.nbaPlayers = players
+                print(players)
             }
         }
-    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+       if segue.identifier == "showPlayerDetails" {
+           // Get the selected player
+           if let indexPath = tableView.indexPathForSelectedRow {
+               let playerData = nbaPlayers[indexPath.row]
+               
 
-
+               let destinationVC = segue.destination as! PlayerViewController
+               
+               // Pass the player data to the destination view controller
+               destinationVC.playerName = playerData.firstName + " "  + playerData.lastName
+               destinationVC.pointsPerGame = 4 
+               destinationVC.reboundsPerGame = 4
+               destinationVC.assistsPerGame = 4
+               destinationVC.teamName = playerData.teamId
+               destinationVC.playerId = playerData.playerId
+           }
+       }
+   }
 }
-

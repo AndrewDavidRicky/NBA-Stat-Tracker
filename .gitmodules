@@ -1,0 +1,6 @@
+[submodule "Submodules/JumpShot"]
+	path = Submodules/JumpShot
+	url = https://github.com/JerelRocktaschel/JumpShot.git
+[submodule "Submodules/--force"]
+	path = Submodules/--force
+	url = https://github.com/JerelRocktaschel/JumpShot.git

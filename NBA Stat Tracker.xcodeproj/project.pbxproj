@@ -20,7 +20,47 @@
 		5DF82FC829C9149F00646152 /* Players.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF82FC729C9149F00646152 /* Players.storyboard */; };
 		8A19080929D0AA270089AE1F /* PlayerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19080829D0AA270089AE1F /* PlayerTableViewController.swift */; };
 		8A19080D29D0B10B0089AE1F /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A19080C29D0B10B0089AE1F /* PlayerViewController.swift */; };
+		8A5CF23F29DA2039006ED57B /* JumpShot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5CF23929DA2017006ED57B /* JumpShot.framework */; };
+		8A5CF24029DA2039006ED57B /* JumpShot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A5CF23929DA2017006ED57B /* JumpShot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8A5CF23829DA2017006ED57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A5CF23229DA2017006ED57B /* JumpShot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D817FC3E261BCFB00092F5E0;
+			remoteInfo = JumpShot;
+		};
+		8A5CF23A29DA2017006ED57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A5CF23229DA2017006ED57B /* JumpShot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D817FC47261BCFB00092F5E0;
+			remoteInfo = JumpShotTests;
+		};
+		8A5CF23C29DA2017006ED57B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8A5CF23229DA2017006ED57B /* JumpShot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D817FCC4261BD1A00092F5E0;
+			remoteInfo = JumpShotExamples;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8A5CF24129DA2039006ED57B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8A5CF24029DA2039006ED57B /* JumpShot.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5D866A4729CBBA7A00CF9D2D /* GameTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTableViewController.swift; sourceTree = "<group>"; };
@@ -38,6 +78,7 @@
 		5DF82FC729C9149F00646152 /* Players.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Players.storyboard; sourceTree = "<group>"; };
 		8A19080829D0AA270089AE1F /* PlayerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewController.swift; sourceTree = "<group>"; };
 		8A19080C29D0B10B0089AE1F /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		8A5CF23229DA2017006ED57B /* JumpShot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JumpShot.xcodeproj; path = "--force/JumpShot.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A5CF23F29DA2039006ED57B /* JumpShot.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,8 +96,10 @@
 		5DF82FA329C913B400646152 = {
 			isa = PBXGroup;
 			children = (
+				8A5CF23129DA1FCB006ED57B /* Submodules */,
 				5DF82FAE29C913B400646152 /* NBA Stat Tracker */,
 				5DF82FAD29C913B400646152 /* Products */,
+				8A5CF23E29DA2039006ED57B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +132,31 @@
 			path = "NBA Stat Tracker";
 			sourceTree = "<group>";
 		};
+		8A5CF23129DA1FCB006ED57B /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				8A5CF23229DA2017006ED57B /* JumpShot.xcodeproj */,
+			);
+			path = Submodules;
+			sourceTree = "<group>";
+		};
+		8A5CF23329DA2017006ED57B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8A5CF23929DA2017006ED57B /* JumpShot.framework */,
+				8A5CF23B29DA2017006ED57B /* JumpShotTests.xctest */,
+				8A5CF23D29DA2017006ED57B /* JumpShotExamples.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8A5CF23E29DA2039006ED57B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,12 +167,15 @@
 				5DF82FA829C913B400646152 /* Sources */,
 				5DF82FA929C913B400646152 /* Frameworks */,
 				5DF82FAA29C913B400646152 /* Resources */,
+				8A5CF24129DA2039006ED57B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "NBA Stat Tracker";
+			packageProductDependencies = (
+			);
 			productName = "NBA Stat Tracker";
 			productReference = 5DF82FAC29C913B400646152 /* NBA Stat Tracker.app */;
 			productType = "com.apple.product-type.application";
@@ -132,14 +204,46 @@
 				Base,
 			);
 			mainGroup = 5DF82FA329C913B400646152;
+			packageReferences = (
+			);
 			productRefGroup = 5DF82FAD29C913B400646152 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8A5CF23329DA2017006ED57B /* Products */;
+					ProjectRef = 8A5CF23229DA2017006ED57B /* JumpShot.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5DF82FAB29C913B400646152 /* NBA Stat Tracker */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8A5CF23929DA2017006ED57B /* JumpShot.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JumpShot.framework;
+			remoteRef = 8A5CF23829DA2017006ED57B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A5CF23B29DA2017006ED57B /* JumpShotTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JumpShotTests.xctest;
+			remoteRef = 8A5CF23A29DA2017006ED57B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8A5CF23D29DA2017006ED57B /* JumpShotExamples.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = JumpShotExamples.app;
+			remoteRef = 8A5CF23C29DA2017006ED57B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5DF82FAA29C913B400646152 /* Resources */ = {
