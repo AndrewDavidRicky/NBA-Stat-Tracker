@@ -10,8 +10,8 @@ struct Team: Codable {
     let division: String
     let primaryColor: String
     let secondaryColor: String
-    let tertiaryColor: String
-    let quaternaryColor: String
+    let tertiaryColor: String?
+    let quaternaryColor: String?
     let wikipediaLogoUrl: String
     let wikipediaWordMarkUrl: String?
     let globalTeamID: Int

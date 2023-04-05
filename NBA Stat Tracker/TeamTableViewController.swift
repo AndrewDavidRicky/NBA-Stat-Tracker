@@ -5,7 +5,7 @@ class TeamTableViewController: UITableViewController {
     
     // Array to store the teams
     var teams: [Team] = [Team]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,25 +20,17 @@ class TeamTableViewController: UITableViewController {
                 print(error?.localizedDescription ?? "Unknown error")
                 return
             }
-            print(String(data: data, encoding: .utf8)!)
-
-            // Parse the JSON response and extract the teams
+            
+            // Decode the JSON data into an array of Team objects
             do {
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase // Use snake case decoding for keys
-                self.teams = try decoder.decode([Team].self, from: data)
-
+                self.teams = try JSONDecoder().decode([Team].self, from: data)
+                
+                // Reload the table view on the main thread
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-
-                    // Print out all the team names in the console
-                    for team in self.teams {
-                        print(team.name)
-                    }
                 }
-            } catch {
-                print("Error parsing JSON: \(error.localizedDescription)")
-                return
+            } catch let error {
+                print("Error decoding JSON: \(error)")
             }
         }
         
@@ -76,8 +68,12 @@ class TeamTableViewController: UITableViewController {
                 let destinationVC = segue.destination as! TeamDetailViewController
                 
                 // Pass the team's data to the destination view controller
-//                destinationVC.team = team
+                destinationVC.teamID = team.teamID
+                destinationVC.name = team.name
+                destinationVC.wikipediaLogoUrl = team.wikipediaLogoUrl
+                destinationVC.teamKey = team.key
             }
         }
     }
+
 }
