@@ -79,7 +79,20 @@ class GameTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
+
+            // Clear cell background color
+            cell.backgroundColor = .clear
+
+            // Create a custom rounded background view
+            let roundedBackgroundView = UIView()
+            roundedBackgroundView.backgroundColor = .white // Change this to the desired cell background color
+            roundedBackgroundView.layer.cornerRadius = 10
+            roundedBackgroundView.clipsToBounds = true
+            cell.backgroundView = roundedBackgroundView
+        
+        cell.textLabel?.textAlignment = .center
         
         let game = nbaGames[indexPath.row]
         
@@ -98,6 +111,19 @@ class GameTableViewController: UITableViewController {
         }
         
         return cell
+    }
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70 // Adjust this value based on the desired cell height
+    }
+
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10 // Adjust this value based on the desired spacing between cells
+    }
+
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = UIView()
+        header.backgroundColor = .clear
+        return header
     }
 }
 
