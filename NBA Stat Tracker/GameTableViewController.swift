@@ -9,45 +9,96 @@ import UIKit
 
 class GameTableViewController: UITableViewController {
     
-    // Hardcoded list of fake NBA games with scores
-        let nbaGames = [
-            ("Atlanta Hawks", 102, "Boston Celtics", 98),
-            ("Brooklyn Nets", 111, "Charlotte Hornets", 104),
-            ("Chicago Bulls", 120, "Cleveland Cavaliers", 115),
-            ("Dallas Mavericks", 112, "Denver Nuggets", 106),
-            ("Detroit Pistons", 95, "Golden State Warriors", 108),
-            // Add more fake games if you like
-        ]
-
+    var nbaGames: [(visitorTeam: String, visitorTeamScore: Int?, homeTeam: String, homeTeamScore: Int?, gameDateTime: String)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        fetchNBAGames()
     }
-
+    
+    func fetchNBAGames() {
+        let apiKey = "85df2d15c78d4449913f9a6e96000608"
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: currentDate)
+        
+        let urlString = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/\(dateString)?key=\(apiKey)"
+        guard let url = URL(string: urlString) else {
+            print("Invalid URL")
+            return
+        }
+        
+        let session = URLSession.shared
+        let task = session.dataTask(with: url) { data, response, error in
+            guard let data = data else {
+                print("Error fetching data: \(error?.localizedDescription ?? "Unknown error")")
+                return
+            }
+            
+            do {
+                guard let dataArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String: Any]] else {
+                    print("Error getting data array from JSON")
+                    return
+                }
+                
+                var fetchedNBAGames: [(visitorTeam: String, visitorTeamScore: Int?, homeTeam: String, homeTeamScore: Int?, gameDateTime: String)] = []
+                
+                for game in dataArray {
+                    guard let visitorTeamName = game["AwayTeam"] as? String,
+                          let homeTeamName = game["HomeTeam"] as? String,
+                          let gameDateTime = game["DateTime"] as? String else {
+                        continue // Skip this game if any data is missing
+                    }
+                    
+                    let visitorTeamScore = game["AwayTeamScore"] as? Int
+                    let homeTeamScore = game["HomeTeamScore"] as? Int
+                    
+                    let nbaGame = (visitorTeamName, visitorTeamScore, homeTeamName, homeTeamScore, gameDateTime)
+                    fetchedNBAGames.append(nbaGame)
+                }
+                
+                DispatchQueue.main.async {
+                    self.nbaGames = fetchedNBAGames
+                    self.tableView.reloadData()
+                }
+                
+            } catch {
+                print("Error converting data to JSON: \(error.localizedDescription)")
+            }
+        }
+        task.resume()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // We only have one section in this table
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // Return the number of games in the list
         return nbaGames.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Dequeue a reusable cell from the table view with an identifier defined in the Storyboard
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
-
-        // Configure the cell with the game information
+        
         let game = nbaGames[indexPath.row]
-        cell.textLabel?.text = "\(game.0) \(game.1) - \(game.3) \(game.2)"
-
+        
+        if let visitorTeamScore = game.visitorTeamScore, let homeTeamScore = game.homeTeamScore {
+            cell.textLabel?.text = "\(game.visitorTeam) \(visitorTeamScore) - \(homeTeamScore) \(game.homeTeam)"
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            if let gameDate = dateFormatter.date(from: game.gameDateTime) {
+                dateFormatter.dateFormat = "h:mm a"
+                let gameTimeString = dateFormatter.string(from: gameDate)
+                cell.textLabel?.text = "\(game.visitorTeam) @ \(game.homeTeam) - Scheduled: \(gameTimeString)"
+            } else {
+                cell.textLabel?.text = "\(game.visitorTeam) @ \(game.homeTeam) - Scheduled: Unknown time"
+            }
+        }
+        
         return cell
     }
-
 }
+
+

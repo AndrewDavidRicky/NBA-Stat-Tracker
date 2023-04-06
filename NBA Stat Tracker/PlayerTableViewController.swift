@@ -16,6 +16,7 @@ class PlayerTableViewController: UITableViewController {
         ("Stephen Curry", 29.6, 6.2, 6.3, "6'2\"", "Golden State Warriors"),
         ]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
