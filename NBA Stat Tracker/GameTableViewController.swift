@@ -87,7 +87,6 @@ class GameTableViewController: UITableViewController {
 
             // Create a custom rounded background view
             let roundedBackgroundView = UIView()
-            roundedBackgroundView.backgroundColor = .white // Change this to the desired cell background color
             roundedBackgroundView.layer.cornerRadius = 10
             roundedBackgroundView.clipsToBounds = true
             cell.backgroundView = roundedBackgroundView
