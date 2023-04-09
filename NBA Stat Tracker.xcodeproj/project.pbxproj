@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490F0BB929E19C4B003F4921 /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490F0BB829E19C4B003F4921 /* PlayerCell.swift */; };
 		4915B1A129DE1AB200934851 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4915B1A029DE1AB200934851 /* Player.swift */; };
 		494EB55129D4DEFA008B0932 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 494EB55029D4DEFA008B0932 /* Team.swift */; };
 		49C8F69729D252810059CAC7 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8F69629D252810059CAC7 /* TeamDetailViewController.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490F0BB829E19C4B003F4921 /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		4915B1A029DE1AB200934851 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		494EB55029D4DEFA008B0932 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		49C8F69629D252810059CAC7 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				5DEA01B029D11D8E00BCD8C0 /* TeamTableViewController.swift */,
 				49C8F69629D252810059CAC7 /* TeamDetailViewController.swift */,
 				4915B1A029DE1AB200934851 /* Player.swift */,
+				490F0BB829E19C4B003F4921 /* PlayerCell.swift */,
 			);
 			path = "NBA Stat Tracker";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				5DF82FB429C913B400646152 /* ViewController.swift in Sources */,
 				49C8F69729D252810059CAC7 /* TeamDetailViewController.swift in Sources */,
 				5D866A4829CBBA7A00CF9D2D /* GameTableViewController.swift in Sources */,
+				490F0BB929E19C4B003F4921 /* PlayerCell.swift in Sources */,
 				5DF82FB029C913B400646152 /* AppDelegate.swift in Sources */,
 				5DEA01B129D11D8E00BCD8C0 /* TeamTableViewController.swift in Sources */,
 				5DF82FB229C913B400646152 /* SceneDelegate.swift in Sources */,
