@@ -1,3 +1,4 @@
+
 //
 //  PlayerTableViewController.swift
 //  NBA Stat Tracker
@@ -9,16 +10,67 @@ import UIKit
 
 class PlayerTableViewController: UITableViewController {
     
-    let nbaPlayers = [
-        ("Luka Doncic", 32.9, 8.6, 8.2, "6'7\"", "Dallas Mavericks"),
-        ("Giannis Antetokounmpo", 31.1, 11.7, 5.6, "6'7\"", "Milwaukee Bucks"),
-        ("Joel Embiid", 33.3, 10.2, 4.2, "7'0\"", "Philadelphia 76ers"),
-        ("Stephen Curry", 29.6, 6.2, 6.3, "6'2\"", "Golden State Warriors"),
-        ]
-    
+    var nbaPlayers = [Player]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let url = URL(string: "https://api.sportsdata.io/v3/nba/scores/json/Players?key=85df2d15c78d4449913f9a6e96000608")!
+        let request = URLRequest(url: url)
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            
+            if let error = error {
+                print("❌ Network error: \(error.localizedDescription)")
+            }
+            
+            
+            guard let data = data else {
+                print("❌ Data is nil")
+                return
+            }
+            
+            do {
+               
+                
+                // Create a JSON Decoder
+                let decoder = JSONDecoder()
+                //let dateFormatter = DateFormatter()
+                //dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                //decoder.dateDecodingStrategy = .formatted(dateFormatter)
+
+                // Use the JSON decoder to try and map the data to our custom model.
+                // TrackResponse.self is a reference to the type itself, tells the decoder what to map to.
+                let response = try decoder.decode([Player].self, from: data)
+
+                // Access the array of tracks from the `results` property
+                //let players = response.results.flatMap { $0 }.filter { player in
+                                //return player.FirstName != nil && player.Team != nil
+                           // }
+                // Execute UI updates on the main thread when calling from a background callback
+                DispatchQueue.main.async {
+
+                    // Set the view controller's tracks property as this is the one the table view references
+                    self?.nbaPlayers = response
+
+                    // Make the table view reload now that we have new data
+                    self?.tableView.reloadData()
+                }
+
+                //print("✅ \(nbaPlayers)")
+
+
+            } catch {
+                print("❌ Error parsing JSON: \(error.localizedDescription)")
+            }
+
+            
+            
+        }
+        
+        task.resume()
+ 
         
     }
     
@@ -37,7 +89,7 @@ class PlayerTableViewController: UITableViewController {
 
         // Configure the cell with the game information
         let player = nbaPlayers[indexPath.row]
-        cell.textLabel?.text = "\(player.0)  (\(player.1) - \(player.2) - \(player.3))"
+        cell.textLabel?.text = player.FirstName
 
         return cell
     }
@@ -52,16 +104,15 @@ class PlayerTableViewController: UITableViewController {
                 let destinationVC = segue.destination as! PlayerViewController
                 
                 // Pass the player's data to the destination view controller
-                destinationVC.playerName = player.0
-                destinationVC.pointsPerGame = player.1
-                destinationVC.reboundsPerGame = player.2
-                destinationVC.assistsPerGame = player.3
-                destinationVC.height = player.4
-                destinationVC.teamName = player.5
+                destinationVC.playerName = player.FirstName
+                //destinationVC.pointsPerGame = player.1
+                //destinationVC.reboundsPerGame = player.2
+                //destinationVC.assistsPerGame = player.3
+                //destinationVC.height = player.4
+                destinationVC.teamName = player.Team
             }
         }
     }
 
 
 }
-
