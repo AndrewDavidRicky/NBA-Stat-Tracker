@@ -63,16 +63,3 @@ NBA Stat Tracker is an iOS app that provides basketball fans with up-to-date sta
 ## Wireframes
 ![](https://i.imgur.com/nfI95sF.png)
 
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
-## Schema 
-[This section will be completed in Unit 9]
-### Models
-[Add table of models]
-### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
