@@ -1,4 +1,5 @@
 import UIKit
+import Nuke
 
 class TeamDetailViewController: UIViewController {
 
@@ -33,21 +34,18 @@ class TeamDetailViewController: UIViewController {
     @IBOutlet weak var teamLogoImageView: UIImageView!
 
     @IBOutlet weak var winsLabel: UILabel!
-    @IBOutlet weak var lossesLabel: UILabel!
     var teamID: Int?
     var name: String?
-    var wikipediaLogoUrl: String?
-    var teamKey: String?
+    var wikipediaLogoUrl: String = ""
+    var teamKey: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Set the team name label
         teamNameLabel.text = name
-
-        // Load the team logo image from the URL
-        if let wikipediaLogoUrl = wikipediaLogoUrl {
-            loadImageFromUrl(urlString: wikipediaLogoUrl)
-        }
+        
+        let imageUrl = URL(string: "https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/" + teamKey + ".png")
+        Nuke.loadImage(with: imageUrl!, into: teamLogoImageView)
 
         // Fetch team data from API
         if let teamID = teamID {
@@ -55,9 +53,10 @@ class TeamDetailViewController: UIViewController {
             updateLabels(teamID: teamID)
         }
         
-        if let teamKey = teamKey {
-            updatePlayers(teamKey: teamKey)
-        }
+        let teamKey = teamKey
+        
+        updatePlayers(teamKey: teamKey)
+        
     }
 
     func fetchTeamData(teamID: Int) {
@@ -81,9 +80,7 @@ class TeamDetailViewController: UIViewController {
                     if let teamData = teamStandings.first(where: { $0.teamID == teamID }) {
                         DispatchQueue.main.async {
                             print("Wins: \(teamData.wins)")
-                            print("Losses: \(teamData.losses)")
-                            self?.winsLabel.text = " \(teamData.wins) Wins"
-                            self?.lossesLabel.text = " \(teamData.losses) Losses"
+                            self?.winsLabel.text = " \(teamData.wins) Wins - \(teamData.losses) Losses"
                         }
                     } else {
                         print("Team data not found for teamID: \(teamID)")
@@ -122,12 +119,11 @@ class TeamDetailViewController: UIViewController {
                         self.teamNameLabel5.text = gameStats.indices.contains(4) ? gameStats[4].team : ""
 
                         // Update result labels
-                        self.resultLabel1.text = gameStats.indices.contains(0) ? (gameStats[0].wins == 1 ? "W" : "L") : ""
-                        self.resultLabel2.text = gameStats.indices.contains(1) ? (gameStats[1].wins == 1 ? "W" : "L") : ""
-                        self.resultLabel3.text = gameStats.indices.contains(2) ? (gameStats[2].wins == 1 ? "W" : "L") : ""
-                        self.resultLabel4.text = gameStats.indices.contains(3) ? (gameStats[3].wins == 1 ? "W" : "L") : ""
-                        self.resultLabel5.text = gameStats.indices.contains(4) ? (gameStats[4].wins == 1 ? "W" : "L") : ""
-
+                        self.resultLabel1.text = gameStats.indices.contains(0) ? (gameStats[0].wins == 1 ? "Win" : "Loss") : ""
+                        self.resultLabel2.text = gameStats.indices.contains(1) ? (gameStats[1].wins == 1 ? "Win" : "Loss") : ""
+                        self.resultLabel3.text = gameStats.indices.contains(2) ? (gameStats[2].wins == 1 ? "Win" : "Loss") : ""
+                        self.resultLabel4.text = gameStats.indices.contains(3) ? (gameStats[3].wins == 1 ? "Win" : "Loss") : ""
+                        self.resultLabel5.text = gameStats.indices.contains(4) ? (gameStats[4].wins == 1 ? "Win" : "Loss") : ""
 
                         // Update opponent labels
                         self.opponentLabel1.text = gameStats.indices.contains(0) ? "\(gameStats[0].opponent)" : ""
@@ -172,35 +168,12 @@ class TeamDetailViewController: UIViewController {
                         self.playerNameLabel7.text = teamPlayers.indices.contains(6) ? teamPlayers[6].firstName + " " + teamPlayers[6].lastName : ""
                         self.playerNameLabel8.text = teamPlayers.indices.contains(7) ? teamPlayers[7].firstName + " " + teamPlayers[7].lastName : ""
                     }
-
                 } catch {
                     print("Error decoding API response: \(error.localizedDescription)")
                 }
             }
         }.resume()
     }
-    
-    func loadImageFromUrl(urlString: String) {
-        guard let url = URL(string: urlString) else {
-            print("Invalid URL: \(urlString)")
-            return
-        }
-
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let error = error {
-                print("Error loading image from URL: \(error.localizedDescription)")
-                return
-            }
-
-            if let data = data, let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self?.teamLogoImageView.image = image
-                }
-            }
-        }
-        task.resume()
-    }
-
 }
 
 struct TeamStanding: Codable {
