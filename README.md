@@ -63,3 +63,5 @@ NBA Stat Tracker is an iOS app that provides basketball fans with up-to-date sta
 ## Wireframes
 ![](https://i.imgur.com/nfI95sF.png)
 
+## Slideshow Demonstration
+https://docs.google.com/presentation/d/112Tesv3tfPSdyUNH4cEt5PHUMNtgWF1cVXHPmPY8UII/edit?usp=sharing
