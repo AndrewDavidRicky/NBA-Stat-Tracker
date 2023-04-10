@@ -82,14 +82,12 @@ class GameTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "gameCell", for: indexPath)
 
-            // Clear cell background color
-            cell.backgroundColor = .clear
-
-            // Create a custom rounded background view
-            let roundedBackgroundView = UIView()
-            roundedBackgroundView.layer.cornerRadius = 10
-            roundedBackgroundView.clipsToBounds = true
-            cell.backgroundView = roundedBackgroundView
+        // Create a custom rounded background view
+        let roundedBackgroundView = UIView()
+        roundedBackgroundView.backgroundColor = .clear // Change this to the desired cell background color
+        roundedBackgroundView.layer.cornerRadius = 10
+        roundedBackgroundView.clipsToBounds = true
+        cell.backgroundView = roundedBackgroundView
         
         cell.textLabel?.textAlignment = .center
         
