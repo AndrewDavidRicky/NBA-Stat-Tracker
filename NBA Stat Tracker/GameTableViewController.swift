@@ -13,6 +13,17 @@ class GameTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Add a label to the navigation bar to display the current date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM d, yyyy"
+        let dateString = dateFormatter.string(from: Date())
+        let dateLabel = UILabel()
+        dateLabel.text = dateString
+        dateLabel.textColor = .black // Set the label's text color to white
+        dateLabel.font = UIFont.boldSystemFont(ofSize: 20) // Set the label's font to bold system font with size 20
+        navigationItem.titleView = dateLabel
+
         fetchNBAGames()
     }
     
